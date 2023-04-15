@@ -43,7 +43,7 @@ body {
   box-sizing: border-box;
 }
 
-.Buttons button {
+.Buttons input {
   font-size: 30px;
   border: 1px solid black;
   border-radius: 90px;

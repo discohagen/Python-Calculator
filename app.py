@@ -1,17 +1,29 @@
 from flask import Flask, render_template, request
 
-calculationInput = "test"
-
-calculationOutput = "0"
+def checkState(state):
+    return
 
 def calculator(input):
     return
 
 app = Flask(__name__)
 
-@app.route("/")
-def home():
-    context = {"input": calculationInput, "output": calculationOutput}
+@app.get("/")
+def home_get():
+    context = {"input": "", "output": 0}
+
+    return render_template(
+        "calculator.html",
+        **context
+    )
+
+@app.post("/")
+def home_post():
+    state = request.form.get("state", default="")
+
+    state = state + request.form.get("input")
+
+    context = {"input": state, "output": 0}
 
     return render_template(
         "calculator.html",

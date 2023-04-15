@@ -16,31 +16,33 @@
         <div class="OutputDisplay">{{output}}</div>
       </div>
 
-      <div class="Buttons">
-        <button class="Gray">AC</button>
-        <button class="Gray">+/-</button>
-        <button class="Gray">%</button>
-        <button class="Orange">÷</button>
+      <form action="/" method ="POST" class="Buttons">
+        <input name="state" type="hidden" value="{{input}}" />
 
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button class="Orange">×</button>
+        <input name="input" type="submit" value="C" class="Gray"></input>
+        <input name="input" type="submit" value="+/-" class="Gray"></input>
+        <input name="input" type="submit" value="%" class="Gray"></input>
+        <input name="input" type="submit" value="÷" class="Orange"></input>
 
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button class="Orange">-</button>
+        <input name="input" type="submit" value="7"></input>
+        <input name="input" type="submit" value="8"></input>
+        <input name="input" type="submit" value="9"></input>
+        <input name="input" type="submit" value="x" class="Orange"></input>
 
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button class="Orange">+</button>
+        <input name="input" type="submit" value="4"></input>
+        <input name="input" type="submit" value="5"></input>
+        <input name="input" type="submit" value="6"></input>
+        <input name="input" type="submit" value="-" class="Orange"></input>
 
-        <button class="Null">0</button>
-        <button>,</button>
-        <button class="Orange">=</button>
-      </div>
+        <input name="input" type="submit" value="1"></input>
+        <input name="input" type="submit" value="2"></input>
+        <input name="input" type="submit" value="3"></input>
+        <input name="input" type="submit" value="+" class="Orange"></input>
+
+        <input name="input" type="submit" value="0" class="Null"></input>
+        <input name="input" type="submit" value=","></input>
+        <input name="input" type="submit" value="=" class="Orange"></input>
+      </form>
     </div>
   </body>
 </html>
