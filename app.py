@@ -3,6 +3,7 @@ from flask import Flask, render_template, request
 from handlers import handleInput 
 
 """
+
 def handleInput(state : str, newStateToGetChecked : str) -> str:
 
     newCharacter = newStateToGetChecked[-1]
