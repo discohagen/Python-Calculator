@@ -26,6 +26,7 @@ body {
 .InputDisplay {
   padding-left: 0.75rem;
   font-size: 20px;
+  overflow-x: auto;
 }
 
 .OutputDisplay {
