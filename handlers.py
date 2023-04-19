@@ -27,7 +27,6 @@ def handleInput(state: str, input : str) -> str:
             return
 
 def handleChangeSign(exp) -> str:
-    
     lastCharacter = getLastCharacter(exp)
     
     match lastCharacter:
@@ -64,24 +63,37 @@ def handlePercentage(exp) -> str:
             return exp
 
         case unused if lastCharacter.isnumeric():
-            lastNumber, isDecimal = getLastNumberAndType(exp)
+            lastNumber = getLastNumber(exp)
+            lastNumber = lastNumber.replace(",", ".")
 
+            lastNumberPercentage = (str(float(lastNumber) / 100)).replace(".", ",")
+            if lastNumberPercentage[-1] == "0":
+                lastNumberPercentage = lastNumberPercentage[:-2]
 
-            if isDecimal:
-                return #WIP
-            else: 
-                lastNumberPercentage = (str(int(lastNumber) / 100)).replace(".", ",")
-                if lastNumberPercentage[-1] == "0":
-                    lastNumberPercentage = lastNumberPercentage[:-2]
-
-                return exp[:-len(lastNumber)] + lastNumberPercentage
+            return exp[:-len(lastNumber)] + lastNumberPercentage
 
         case _:
             print("something went wrong")
             return
 
 def handleOperator(exp, input):
-    return
+    lastCharacter = getLastCharacter(exp)
+
+    match lastCharacter:
+        case "":
+            if input == "-":
+                return "-"
+            return ""
+
+        case "+" | "-" | "÷" | "x" | ",":
+            return input
+        
+        case unused if lastCharacter.isnumeric():
+            return exp + input
+
+        case _:
+            print("something went wrong")
+            return
 
 def handleComma(exp) -> str:
     return
@@ -97,18 +109,14 @@ def getLastCharacter(exp) -> str:
 
     return lastCharacter
 
-def getLastNumberAndType(exp) -> tuple:
+def getLastNumber(exp) -> str:
     reverse = exp[::-1]
     lastNumber = ""
-    isDecimal = False
 
     for char in reverse:
-        if char.isnumeric():
+        if char.isnumeric() or char == ",":
             lastNumber += char
-        elif char == ",":
-            lastNumber += char
-            isDecimal = True
         else:
             break
 
-    return lastNumber[::-1], isDecimal
+    return lastNumber[::-1]
