@@ -1,3 +1,6 @@
+from calculator import calculator
+
+
 def handleInput(state: str, input : str) -> str:
 
     match input:
@@ -86,7 +89,7 @@ def handleOperator(exp, input):
             return ""
 
         case "+" | "-" | "÷" | "x" | ",":
-            return input
+            return exp[:-1] + input
         
         case unused if lastCharacter.isnumeric():
             return exp + input
@@ -96,10 +99,25 @@ def handleOperator(exp, input):
             return
 
 def handleComma(exp) -> str:
-    return
+    lastCharacter = getLastCharacter(exp)
 
-def calculator(exp: str) -> str:
-    return
+    match lastCharacter:
+        case "" | "+" | "-" | "÷" | "x":
+            return exp + "0,"
+        
+        case ",":
+            return exp
+        
+        case unused if lastCharacter.isnumeric():
+            lastNumber = getLastNumber(exp)
+            if lastNumber.find(",") != -1:
+                return exp
+            else:
+                return exp + ","
+
+        case _:
+            print("something went wrong")
+            return
 
 def getLastCharacter(exp) -> str:
     if exp == "":
