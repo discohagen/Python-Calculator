@@ -50,7 +50,7 @@ def calculator(exp: str) -> str:
                 innerIndex -= 1
             leftOperand = exp[innerIndex+1 : indexExp]
 
-            innerIndex = indexExp - 1
+            innerIndex = indexExp + 1
             while innerIndex < len(exp) and (exp[innerIndex].isdigit() or exp[innerIndex] == "."):
                 innerIndex += 1
             rightOperand = exp[indexExp+1 : innerIndex]
