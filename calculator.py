@@ -12,59 +12,59 @@ def calculator(exp: str) -> str:
 
     exp = exp.replace(",", ".")
 
-    i = 0
-    while i < len(exp):
-        if exp[i] == "x" or exp[i] == "÷":
+    indexExp = 0
+    while indexExp < len(exp):
+        if exp[indexExp] == "x" or exp[indexExp] == "÷":
 
-            j = i - 1
-            while j >= 0 and (exp[j].isdigit() or exp[j] == "."):
-                j -= 1
-            leftOperand = (exp[j+1 : i])
+            innerIndex = indexExp - 1
+            while innerIndex >= 0 and (exp[innerIndex].isdigit() or exp[innerIndex] == "."):
+                innerIndex -= 1
+            leftOperand = exp[innerIndex+1 : indexExp]
 
-            j = i + 1
-            while j < len(exp) and (exp[j].isdigit() or exp[j] == "."):
-                j += 1
-            rightOperand = (exp[i+1 : j])
+            innerIndex = indexExp + 1
+            while innerIndex < len(exp) and (exp[innerIndex].isdigit() or exp[innerIndex] == "."):
+                innerIndex += 1
+            rightOperand = exp[indexExp+1 : innerIndex]
 
-            if exp[i] == "x":
+            if exp[indexExp] == "x":
                 result = float(leftOperand) * float(rightOperand)
-            elif exp[i] == "÷":
+            elif exp[indexExp] == "÷":
                 try:
                     result = float(leftOperand) / float(rightOperand)
                 except:
                     print("somebody wanted to divide by 0")
                     return
 
-            exp = exp.replace(leftOperand + exp[i] + rightOperand, str(result), 1)
+            exp = exp.replace(leftOperand + exp[indexExp] + rightOperand, str(result), 1)
 
-            i = j - len(str(rightOperand)) - 1
+            indexExp = innerIndex - len(str(rightOperand)) - 1
 
-        i += 1
+        indexExp += 1
 
-    i = 0
-    while i < len(exp):
-        if exp[i] == "+" or exp[i] == "-":
+    indexExp = 0
+    while indexExp < len(exp):
+        if exp[indexExp] == "+" or exp[indexExp] == "-":
 
-            j = i - 1
-            while j >= 0 and (exp[j].isdigit() or exp[j] == "."):
-                j -= 1
-            leftOperand = exp[j+1 : i]
+            innerIndex = indexExp - 1
+            while innerIndex >= 0 and (exp[innerIndex].isdigit() or exp[innerIndex] == "."):
+                innerIndex -= 1
+            leftOperand = exp[innerIndex+1 : indexExp]
 
-            j = i - 1
-            while j < len(exp) and (exp[j].isdigit() or exp[j] == "."):
-                j += 1
-            rightOperand = exp[j+1 : i]
+            innerIndex = indexExp - 1
+            while innerIndex < len(exp) and (exp[innerIndex].isdigit() or exp[innerIndex] == "."):
+                innerIndex += 1
+            rightOperand = exp[indexExp+1 : innerIndex]
 
-            if exp[i] == "+":
+            if exp[indexExp] == "+":
                 result = float(leftOperand) + float(rightOperand)
-            elif exp[i] == "-":
+            elif exp[indexExp] == "-":
                 result = float(leftOperand) - float(rightOperand)
 
-            exp = exp.replace(leftOperand + exp[i] + rightOperand, str(result), 1)
+            exp = exp.replace(leftOperand + exp[indexExp] + rightOperand, str(result), 1)
 
-            i = j - len(str(rightOperand)) - 1
+            indexExp = innerIndex - len(str(rightOperand)) - 1
 
-        i += 1
+        indexExp += 1
 
     exp = exp.replace(".", ",")
     

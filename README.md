@@ -16,7 +16,7 @@ These instructions will get you a copy of the project up and running on your loc
 1. Clone the repo to your local machine:
 
 ```
-git clone https://github.com/<username>/<repo-name>.git
+git clone https://github.com/discohagen/Python-Calculator.git
 ```
 
 2. Install Flask:
@@ -25,12 +25,14 @@ git clone https://github.com/<username>/<repo-name>.git
 pip install flask
 ```
 
+For development purposes it is recommended to use a [virtual environment](https://docs.python.org/3/library/venv.html).
+
 ### Running the app
 
 1. Navigate to the repo directory:
 
 ```
-cd <repo-name>
+cd Python-Calculator
 ```
 
 2. Run the app:
