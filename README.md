@@ -1,34 +1,51 @@
-# Python-Calculator
+# Calculator Web App with Python
 
-## First Steps
+This is a simple calculator web app built using only Python and Flask. The app allows users to perform basic arithmetic operations.
 
-Google wie man in Python eine Weboberfläche kreieren kann -> Flask
+## Getting Started
 
-## Flask Documentation
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-Zum installieren / Aufbau des Projektes in VSC und wie man Routings erstellt
+### Prerequisites
 
-## ChatGPT
+- Python 3
+- Flask
 
-Zum absichern für vernünftigen Code und für Verständnisfragen oder als Start für Recherchen.
-Z.B.: "Ist es möglich die Creation von verschiedenen Buttons ins Python auszulagern anstatt im html viele Zeilen zu benötigen?"
+### Installing
 
-## Mein Freund das Informatik Genie aka ChatGpt in besser
+1. Clone the repo to your local machine:
 
-Zum absichern für vernünftigen Code und für Verständnisfragen oder als Start für Recherchen.
-Z.B.: "Verwende nicht die Möglichkeit Buttons im Python zu erstellen. Dies ermöglicht XSS-Injections / Sicherheitslücken"
+```
+git clone https://github.com/<username>/<repo-name>.git
+```
 
-## Styling
+2. Install Flask:
 
-Passierte schließlich alles an einem Tag und ist angelehnt an den IOS Taschenrechner.
+```
+pip install flask
+```
 
-## Problem: GET und POST
+### Running the app
 
-Die Entscheidung entweder Javascript zu verwenden um Eingaben ClientSite zu halten und dann ein HTTP request zu machen
-oder nur Python verwenden, aber dann den Abstrich machen dass nur ein Client die Seite zu einer gegebenen Zeit verwenden kann,
-da im Server die Eingabe in einer Variable gespeichert wird und damit golbal ist.
+1. Navigate to the repo directory:
 
-## Lösung:
+```
+cd <repo-name>
+```
 
-Wir können lokal states im Browser halten, indem wir diese beim template rendern in ein hidden Input im HTML setzen
-und es durch das POST Formular durch den Flask request im Python abfragen können.
+2. Run the app:
+
+```
+flask run
+```
+
+3. Open your browser and go to http://localhost:5000
+
+## Built With
+
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/) - The web Framework used
+- HTML / CSS - Frontend
+
+## Authors
+
+- Discohagen
