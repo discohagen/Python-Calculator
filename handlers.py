@@ -1,10 +1,13 @@
 from calculator import calculator
+from helpers import getLastCharacter
 
 
 def handleInput(state: str, input : str) -> str:
 
     match input:
         case unused if input.isnumeric():
+            if getLastCharacter(state) == "÷" and input == "0":
+                return state
             return state + input
         
         case "C":
@@ -118,14 +121,6 @@ def handleComma(exp) -> str:
         case _:
             print("something went wrong")
             return
-
-def getLastCharacter(exp) -> str:
-    if exp == "":
-        lastCharacter = exp
-    else : 
-        lastCharacter = exp[-1]
-
-    return lastCharacter
 
 def getLastNumber(exp) -> str:
     reverse = exp[::-1]
