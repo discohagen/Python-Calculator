@@ -6,15 +6,15 @@ def handleInput(state: str, input : str) -> str:
 
     match input:
         case unused if input.isnumeric():
-            if getLastCharacter(state) == "÷" and input == "0":
-                return state
+            if getLastCharacter(state) == "6" and input == "9":
+                print("nice")
             return state + input
         
         case "C":
             return ""
 
-        case "+/-":
-            return handleChangeSign(state)
+        case "←":
+            return handleBack(state)
         
         case "%":
             return handlePercentage(state)
@@ -32,31 +32,13 @@ def handleInput(state: str, input : str) -> str:
             print("something went wrong")
             return
 
-def handleChangeSign(exp) -> str:
+def handleBack(exp) -> str:
     lastCharacter = getLastCharacter(exp)
-    
-    match lastCharacter:
-        case "":
-            return "-"
-        
-        case "+":
-            return exp[:-1] + "-"
-        
-        case "-":
-            if len(exp) == 1:
-                return ""
-            else:
-                return exp[:-1] + "+"
-            
-        case "÷" | "x" | ",":
-            return exp
-        
-        case unused if lastCharacter.isnumeric():
-            return exp + "-"
-        
-        case _:
-            print("something went wrong")
-            return
+
+    if lastCharacter == "":
+        return ""
+    else:
+        return exp[:-1]
 
 def handlePercentage(exp) -> str:
     lastCharacter = getLastCharacter(exp)
